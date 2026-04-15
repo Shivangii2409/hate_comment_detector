@@ -325,7 +325,7 @@ def infer_text_column(df: pd.DataFrame):
 
 
 def infer_label_column(df: pd.DataFrame, text_col=None):
-    preferred = ["label", "target", "class", "category", "sentiment", "output"]
+    preferred = ["hate_speech", "label", "target", "class", "category", "sentiment", "output"]
     cols = [c for c in df.columns if c != text_col]
     lower_map = {c.lower(): c for c in cols}
     for p in preferred:
@@ -795,15 +795,15 @@ elif step == "4. Feature Selection":
         "sublinear_tf": use_sublinear,
     }
 
-    st.markdown("""
-    <div class='section-card'>
-        <div class='section-title'>💡 Accuracy Fix Applied</div>
-        <div style='line-height:1.8;'>
-            Earlier 100% accuracy was likely caused by data leakage from balancing before split or from an overly easy split.<br>
-            This version keeps splitting separate and can use stratified splitting plus better regularization.
-        </div>
-    </div>
-    """, unsafe_allow_html=True)
+    # st.markdown("""
+    # <div class='section-card'>
+    #     <div class='section-title'>💡 Accuracy Fix Applied</div>
+    #     <div style='line-height:1.8;'>
+    #         Earlier 100% accuracy was likely caused by data leakage from balancing before split or from an overly easy split.<br>
+    #         This version keeps splitting separate and can use stratified splitting plus better regularization.
+    #     </div>
+    # </div>
+    # """, unsafe_allow_html=True)
 
 # ============================================================
 # STEP 5 — SPLIT
